@@ -4,68 +4,72 @@
 /*** Author: Dylan McKee    26/10/2015                                 ***/
 /*************************************************************************/
 
-
 public class TestSort {
 
+    // Using constants to make switching out of data during the testing phase easier.
+    private static final String FILE_NAME = "test3.txt";
+    private static final int ARRAY_SIZE = 100;
+
     public static void main(String[] args) {
-        final Sort insertionSortTest = new Sort(100);
+        // Instantiate a sort object for insertion sort testing
+        Sort insertionSortTest = new Sort(ARRAY_SIZE);
 
-        /** Read in test data into array **/
-        insertionSortTest.readIn("test3.txt");
+        // Read the test data into array
+        insertionSortTest.readIn(FILE_NAME);
 
-        /** Display array **/
+        // Print unsorted array to the console
         insertionSortTest.display(10, "Unsorted Array of Integers");
 
-        /** Perform insertion sort **/
+        // Perform insertion sort algorithm on the array
         insertionSortTest.insertionSort();
 
-        /** Display insertion sorted array **/
-        insertionSortTest.display(10, "Insertion-sorted Array of Integers");
+        // Print insertion sorted array to the console
+        insertionSortTest.display(10, "\nInsertion-sorted Array of Integers");
 
 
-        /** And display comparison count **/
+        // Print insertion sort comparison count
         System.out.println("\n\nInsertion sort comparison counter: " + insertionSortTest.compIS);
 
+        // Instantiate a sort object for quicksort testing
+        Sort quickSortTest = new Sort(ARRAY_SIZE);
 
+        // Read the test data into array
+        quickSortTest.readIn(FILE_NAME);
 
-        Sort quickSortTest = new Sort(100);
-
-        /** Read in test data into array **/
-        quickSortTest.readIn("test3.txt");
-
-        /** Display unsorted array **/
+        // Print unsorted array to the console
         quickSortTest.display(10, "\nUnsorted Array of Integers");
 
-        /** Perform quick-sort **/
-        quickSortTest.performQuicksort();
+        // Perform quicksort algorithm on the array
+        quickSortTest.quickSort();
 
-        /** Display quicksorted array **/
-        quickSortTest.display(10, "Quicksorted Array of Integers");
+        // Print quicksorted array to the console
+        quickSortTest.display(10, "\nQuicksorted Array of Integers");
 
-        /** End with a blank line to improve readability in the console **/
+        // Print a blank line to make results more readable
         System.out.println("\n");
 
-        /** Display comparison counters **/
+        // Print quicksort comparison count
         System.out.println("Quicksort comparison counter: " + quickSortTest.compQS);
 
-        Sort newSortTest = new Sort(100);
+        // Instantiate a sort object for 'new sort' testing
+        Sort newSortTest = new Sort(ARRAY_SIZE);
 
-        /** Read in test data into array **/
-        newSortTest.readIn("test3.txt");
+        // Read the test data into array
+        newSortTest.readIn(FILE_NAME);
 
-        /** Display unsorted array **/
+        // Print unsorted array to the console
         newSortTest.display(10, "\nUnsorted Array of Integers");
 
-        /** Perform new sort **/
+        // Perform 'new sort' algorithm on the array
         newSortTest.newSort();
 
-        /** Display new sorted array **/
-        newSortTest.display(10, "'New sorted' Array of Integers");
+        // Print 'new sorted' array to the console
+        newSortTest.display(10, "\n'New sorted' Array of Integers");
 
-        /** End with a blank line to improve readability in the console **/
+        // Print a blank line to make results more readable
         System.out.println("\n");
 
-        /** Display comparison counters **/
+        // Print 'new sort' comparison count
         System.out.println("New sort comparison counter: " + newSortTest.compNewS);
 
     }

@@ -188,9 +188,16 @@ public class Sort {
 
     }
 
-    /***********************/
-    /*** Quick sort      ***/
-    /***********************/
+    /************************************************************************************************/
+    /*** A public method to expose the quicksort algorithm to the test class so it can be tested  ***/
+    /************************************************************************************************/
+    public void quickSort() {
+        quickSort(0, size - 1);
+    }
+
+    /**********************************************************************************/
+    /*** The actual internal private implementation of the quicksort algorithm      ***/
+    /**********************************************************************************/
     private void quickSort(int L, int R) {
         if (R > L) {
 
@@ -203,14 +210,15 @@ public class Sort {
         }
     }
 
-    public void performQuicksort() {
-        quickSort(0, size - 1);
-    }
-
-
+    /************************************************************************************************/
+    /*** A 'find min. from array position onwards' method for use by the newSort() algorithm      ***/
+    /************************************************************************************************/
     private int findMinFrom(int[] array, int pos) {
         int min = array[pos];
+
         for (int i = pos + 1; i < array.length; i++){
+            // ARRAY COMPARISON: 1 comparison involving array here
+            compNewS++;
             if (array[i] < min) {
                 min = array[i];
             }
@@ -219,6 +227,9 @@ public class Sort {
         return min;
     }
 
+    /********************************************************************************************************/
+    /*** An implementation of the mysterious 'new sort' algorithm, as described in the lecture notes      ***/
+    /********************************************************************************************************/
     public void newSort() {
         int pos = 0;
         while (pos < size) {
