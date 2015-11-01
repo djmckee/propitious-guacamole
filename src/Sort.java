@@ -116,9 +116,10 @@ public class Sort {
             int j = i;
 
             // Loop whilst J's a valid array index and the key is smaller than the item on the left of J...
-            // ARRAY COMPARISON: 1 comparison involving array here
-            compIS++;
             while ((j > 0) && (key < A[j - 1])) {
+                // ARRAY COMPARISON: 1 comparison involving array here
+                compIS++;
+
                 // Move A to the left once (because it's smaller than what's on its left)...
                 A[j] = A[j - 1];
 
@@ -146,15 +147,19 @@ public class Sort {
 
         while (pL < pR) {
 
-            // ARRAY COMPARISON: 1 comparison involving array here
-            compQS++;
+
             while (A[pL] < v) {
+                // ARRAY COMPARISON: 1 comparison involving array here
+                compQS++;
+
                 pL = pL + 1;
             }
 
-            // ARRAY COMPARISON: 1 comparison involving array here
-            compQS++;
+
             while ((A[pR] >= v) && (pR > left)) {
+                // ARRAY COMPARISON: 1 comparison involving array here
+                compQS++;
+
                 pR = pR - 1;
             }
 

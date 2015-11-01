@@ -7,7 +7,7 @@
 public class TestSort {
 
     // Using constants to make switching out of data during the testing phase easier.
-    private static final String FILE_NAME = "test3.txt";
+    private static final String FILE_NAME = "test5.txt";
     private static final int ARRAY_SIZE = 100;
 
     public static void main(String[] args) {
