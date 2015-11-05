@@ -140,45 +140,43 @@ public class Sort {
     /******************************************************************************/
     private int partition(int left, int right) {
         // Perform the partition...
-        int p;
-
-        int v = A[right];
-        int pL = left;
-        int pR = right;
+        int pivot = A[right];
+        int leftPointer = left;
+        int rightPointer = right;
 
 
-        while (pL < pR) {
+        while (leftPointer < rightPointer) {
 
-            while (A[pL] < v) {
+            while (A[leftPointer] < pivot) {
                 // ARRAY COMPARISON: 1 comparison involving array here
                 compQS++;
 
-                pL = pL + 1;
+                leftPointer = leftPointer + 1;
             }
             // ARRAY COMPARISON: When the while condition above is false, 1 comparison is still made
             compQS++;
 
-            while ((A[pR] >= v) && (pR > left)) {
+            while ((A[rightPointer] >= pivot) && (rightPointer > left)) {
                 // ARRAY COMPARISON: 1 comparison involving array here
                 compQS++;
 
-                pR = pR - 1;
+                rightPointer = rightPointer - 1;
             }
             // ARRAY COMPARISON: When the while condition above is false, 1 comparison is still made
             compQS++;
 
-            if (pL < pR) {
+            if (leftPointer < rightPointer) {
                 // Perform the swap of elements...
-                swap(pL, pR);
+                swap(leftPointer, rightPointer);
 
             }
 
         }
 
         // And perform another swap...
-        swap(pL, right);
+        swap(leftPointer, right);
 
-        return pL;
+        return leftPointer;
     }
 
 
@@ -188,12 +186,12 @@ public class Sort {
     /*****************************************************************************************/
     private void swap(int pL, int pR) {
         // Create the placeholder variables to hold the 'opposite' item during the swap
-        int pLPlaceholder = A[pL];
-        int pRPlaceholder = A[pR];
+        int leftPositionPlaceholder = A[pL];
+        int rightPositionPlaceholder = A[pR];
 
         // Perform the swap
-        A[pR] = pLPlaceholder;
-        A[pL] = pRPlaceholder;
+        A[pR] = leftPositionPlaceholder;
+        A[pL] = rightPositionPlaceholder;
 
     }
 
@@ -209,7 +207,6 @@ public class Sort {
     /**********************************************************************************/
     private void quickSort(int L, int R) {
         if (R > L) {
-
             // Perform partition
             int p = partition(L, R);
 
