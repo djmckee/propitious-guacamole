@@ -126,6 +126,8 @@ public class Sort {
                 // And decrement j to avoid an array 'underflow'
                 j = j - 1;
             }
+            // ARRAY COMPARISON: When the while condition above is false, 1 comparison is still made
+            compIS++;
 
             // Set the value at index j to be equal to what was previously at A[i];
             A[j] = key;
@@ -147,14 +149,14 @@ public class Sort {
 
         while (pL < pR) {
 
-
             while (A[pL] < v) {
                 // ARRAY COMPARISON: 1 comparison involving array here
                 compQS++;
 
                 pL = pL + 1;
             }
-
+            // ARRAY COMPARISON: When the while condition above is false, 1 comparison is still made
+            compQS++;
 
             while ((A[pR] >= v) && (pR > left)) {
                 // ARRAY COMPARISON: 1 comparison involving array here
@@ -162,6 +164,8 @@ public class Sort {
 
                 pR = pR - 1;
             }
+            // ARRAY COMPARISON: When the while condition above is false, 1 comparison is still made
+            compQS++;
 
             if (pL < pR) {
                 // Perform the swap of elements...
@@ -222,7 +226,7 @@ public class Sort {
         int min = array[pos];
 
         for (int i = pos + 1; i < array.length; i++){
-            // ARRAY COMPARISON: 1 comparison involving array here
+            // ARRAY COMPARISON: 1 comparison involving array here (this gets incremented even when the if's false)
             compNewS++;
             if (array[i] < min) {
                 min = array[i];
@@ -233,7 +237,7 @@ public class Sort {
     }
 
     /********************************************************************************************************/
-    /*** An implementation of the mysterious 'new sort' algorithm, as described in the lecture notes      ***/
+    /*** An implementation of the mysterious 'new sort' algorithm, as described in the assignment         ***/
     /********************************************************************************************************/
     public void newSort() {
         int pos = 0;
@@ -241,7 +245,7 @@ public class Sort {
             int min = findMinFrom(A, pos);
 
             for (int i = pos; i < size; i++) {
-                // ARRAY COMPARISON: 1 comparison involving array here
+                // ARRAY COMPARISON: 1 comparison involving array here (this gets incremented even when the if's false)
                 compNewS++;
                 if (A[i] == min) {
                     swap(i, pos);

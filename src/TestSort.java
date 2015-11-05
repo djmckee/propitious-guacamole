@@ -11,6 +11,7 @@ public class TestSort {
     private static final int ARRAY_SIZE = 100;
 
     public static void main(String[] args) {
+        /*
         // Instantiate a sort object for insertion sort testing
         Sort insertionSortTest = new Sort(ARRAY_SIZE);
 
@@ -51,6 +52,9 @@ public class TestSort {
         // Print quicksort comparison count
         System.out.println("Quicksort comparison counter: " + quickSortTest.compQS);
 
+        */
+
+
         // Instantiate a sort object for 'new sort' testing
         Sort newSortTest = new Sort(ARRAY_SIZE);
 
@@ -71,6 +75,7 @@ public class TestSort {
 
         // Print 'new sort' comparison count
         System.out.println("New sort comparison counter: " + newSortTest.compNewS);
+
 
     }
 

@@ -1,0 +1,20 @@
+Unsorted Array of Integers
+101 007 073 110 057 120 066 025 012 065 
+097 051 018 041 103 
+
+Insertion-sorted Array of Integers
+007 012 018 025 041 051 057 065 066 073 
+097 101 103 110 120 
+
+Insertion sort comparison counter: 74
+
+
+Unsorted Array of Integers
+101 007 073 110 057 120 066 025 012 065
+097 051 018 041 103
+
+Quicksorted Array of Integers
+007 012 018 025 041 051 057 065 066 073
+097 101 103 110 120
+
+Quicksort comparison counter: 83
