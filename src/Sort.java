@@ -181,6 +181,7 @@ public class Sort {
             // ARRAY COMPARISON: When the while condition above is false, 1 comparison is still made
             compQS++;
 
+            // If the right pointer's still 'to the right' of (i.e. greater than) the left pointer, swap the elements around
             if (leftPointer < rightPointer) {
                 // Perform the swap of elements...
                 swap(leftPointer, rightPointer);
