@@ -30,15 +30,21 @@ public class Sort {
     /**
      * Global variables for counting sort comparisons
      **/
-    public int compIS;
+
     /**
      * Global comparison count for Insertion Sort
      **/
-    public int compQS;
+    public int compIS;
+
     /**
      * Global comparison count for Quicksort
      **/
-    public int compNewS; /** Global comparison count for new sort **/
+    public int compQS;
+
+    /**
+     * Global comparison count for New Sort
+     **/
+    public int compNewS;
 
     /*****************/
     /** Constructor **/
@@ -185,6 +191,7 @@ public class Sort {
         // And perform another swap...
         swap(leftPointer, right);
 
+        // Return the left-most pointer...
         return leftPointer;
     }
 
@@ -198,7 +205,7 @@ public class Sort {
         int leftPositionPlaceholder = A[pL];
         int rightPositionPlaceholder = A[pR];
 
-        // Perform the swap
+        // Perform the swap by exchanging the elements in the array, using the placeholders...
         A[pR] = leftPositionPlaceholder;
         A[pL] = rightPositionPlaceholder;
 
