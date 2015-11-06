@@ -11,10 +11,18 @@ public class TestSort {
     private static final int ARRAY_SIZE = 100;
 
 
-    // To test the different sort types, I commented out the Sort instances for the sorts I did not wish to test in that
-    // run, and all relevant code relating to them, to ensure only the results I required got printed to the console.
+    // To test the different sort types, I commented out the method that performs the sort tests I did not require for that particular test case.
     public static void main(String[] args) {
+        // Call the methods that perform the sort tests required for this particular test case...
+        testInsertionSort();
 
+        testQuickSort();
+
+        testNewSort();
+
+    }
+
+    private static void testInsertionSort() {
         // Instantiate a sort object for insertion sort testing
         Sort insertionSortTest = new Sort(ARRAY_SIZE);
 
@@ -33,6 +41,9 @@ public class TestSort {
         // Print insertion sort comparison count
         System.out.println("\n\nInsertion sort comparison counter: " + insertionSortTest.compIS);
 
+    }
+
+    private static void testQuickSort() {
         // Instantiate a sort object for quicksort testing
         Sort quickSortTest = new Sort(ARRAY_SIZE);
 
@@ -54,6 +65,9 @@ public class TestSort {
         // Print quicksort comparison count
         System.out.println("Quicksort comparison counter: " + quickSortTest.compQS);
 
+    }
+
+    private static void testNewSort() {
         // Instantiate a sort object for 'new sort' testing
         Sort newSortTest = new Sort(ARRAY_SIZE);
 
@@ -75,7 +89,8 @@ public class TestSort {
         // Print 'new sort' comparison count
         System.out.println("New sort comparison counter: " + newSortTest.compNewS);
 
-
     }
+
+
 
 }
