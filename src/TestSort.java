@@ -10,6 +10,9 @@ public class TestSort {
     private static final String FILE_NAME = "test3.txt";
     private static final int ARRAY_SIZE = 100;
 
+
+    // To test the different sort types, I commented out the Sort instances for the sorts I did not wish to test in that
+    // run, and all relevant code relating to them, to ensure only the results I required got printed to the console.
     public static void main(String[] args) {
 
         // Instantiate a sort object for insertion sort testing
@@ -26,7 +29,6 @@ public class TestSort {
 
         // Print insertion sorted array to the console
         insertionSortTest.display(10, "\nInsertion-sorted Array of Integers");
-
 
         // Print insertion sort comparison count
         System.out.println("\n\nInsertion sort comparison counter: " + insertionSortTest.compIS);
