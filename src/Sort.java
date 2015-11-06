@@ -234,19 +234,19 @@ public class Sort {
     }
 
     /********************************************************************************************************/
-    /*** An implementation of the mysterious 'new sort' algorithm, as described in the assignment         ***/
+    /*** An implementation of the mysterious 'new sort' algorithm, as described in the assignment brief   ***/
     /********************************************************************************************************/
     public void newSort() {
-        int pos = 0;
-        while (pos < size) {
-            int min = findMinFrom(A, pos);
+        int currentPosition = 0;
+        while (currentPosition < size) {
+            int min = findMinFrom(A, currentPosition);
 
-            for (int i = pos; i < size; i++) {
+            for (int i = currentPosition; i < size; i++) {
                 // ARRAY COMPARISON: 1 comparison involving array here (this gets incremented even when the if's false)
                 compNewS++;
                 if (A[i] == min) {
-                    swap(i, pos);
-                    pos = pos + 1;
+                    swap(i, currentPosition);
+                    currentPosition = currentPosition + 1;
                 }
             }
 
