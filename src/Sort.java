@@ -169,7 +169,8 @@ public class Sort {
             // ARRAY COMPARISON: When the while condition above is false, 1 comparison is still made
             compQS++;
 
-            //
+            // While the right pointer is greater than/equal to the pivot, and still further right than the left pointer (i.e. the pointers haven't yet crossed),
+            // Keep on moving the right pointer 'to the left' by decrementing it, moving it closer to the left pointer.
             while ((A[rightPointer] >= pivot) && (rightPointer > left)) {
                 // ARRAY COMPARISON: 1 comparison involving array here
                 compQS++;
@@ -238,16 +239,20 @@ public class Sort {
     /*** A 'find min. from array position onwards' method for use by the newSort() algorithm      ***/
     /************************************************************************************************/
     private int findMinFrom(int[] array, int pos) {
+        // Assume the minimum value in the array is the one we're looking onwards from initially
         int min = array[pos];
 
-        for (int i = pos + 1; i < array.length; i++){
+        // Iterate through the array only looking onwards from the current point (not including the current point), to the end of it
+        for (int i = pos + 1; i < array.length; i++) {
             // ARRAY COMPARISON: 1 comparison involving array here (this gets incremented even when the if's false)
             compNewS++;
             if (array[i] < min) {
+                // If the current array element is greater than the min, then set the min value equal to the current array element
                 min = array[i];
             }
         }
 
+        // And return whatever minimum value has been found
         return min;
     }
 
@@ -255,15 +260,25 @@ public class Sort {
     /*** An implementation of the mysterious 'new sort' algorithm, as described in the assignment brief   ***/
     /********************************************************************************************************/
     public void newSort() {
+        // Start at index 0 in the array
         int currentPosition = 0;
+
+        // Carry on the sorting loop only while we're in the array bounds
         while (currentPosition < size) {
+            // Find the minimum in the array from the current position onwards
             int min = findMinFrom(A, currentPosition);
 
+            // Iterate through the array
             for (int i = currentPosition; i < size; i++) {
+                // Check if the current item being iterated is the smallest item...
                 // ARRAY COMPARISON: 1 comparison involving array here (this gets incremented even when the if's false)
                 compNewS++;
                 if (A[i] == min) {
+                    // If the current item being iterated is the smallest item, swap it with the current position of the outer while loop,
+                    // ensuring that the smallest item is at the front (in resepect to the position of the outer loop's current position) of the array
                     swap(i, currentPosition);
+
+                    // Iterate onto the next position by incrementing
                     currentPosition = currentPosition + 1;
                 }
             }
