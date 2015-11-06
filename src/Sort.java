@@ -112,7 +112,7 @@ public class Sort {
             // The key is the item at the current index...
             int key = A[i];
 
-            // And j is the current index...
+            // And j is the current index (copied to another placeholder variable so that it can be safely mutated)...
             int j = i;
 
             // Loop whilst J's a valid array index and the key is smaller than the item on the left of J...
@@ -140,26 +140,35 @@ public class Sort {
     /******************************************************************************/
     private int partition(int left, int right) {
         // Perform the partition...
+
+        // The pivot element will be the rightmost element
         int pivot = A[right];
+
+        // Set up the left and right pointers too...
         int leftPointer = left;
         int rightPointer = right;
 
 
+        // While the entire array hasn't yet been traversed by the pointers, carry on moving them through it...
         while (leftPointer < rightPointer) {
 
+            // While the left pointer is 'further left' (i.e. less than) the pivot element, keep moving it to the right, closer to the pivot...
             while (A[leftPointer] < pivot) {
                 // ARRAY COMPARISON: 1 comparison involving array here
                 compQS++;
 
+                // Move the left pointer 'to the right' by incrementing it by 1
                 leftPointer = leftPointer + 1;
             }
             // ARRAY COMPARISON: When the while condition above is false, 1 comparison is still made
             compQS++;
 
+            //
             while ((A[rightPointer] >= pivot) && (rightPointer > left)) {
                 // ARRAY COMPARISON: 1 comparison involving array here
                 compQS++;
 
+                // Move the right pointer 'to the left' by decrementing it
                 rightPointer = rightPointer - 1;
             }
             // ARRAY COMPARISON: When the while condition above is false, 1 comparison is still made
@@ -199,6 +208,7 @@ public class Sort {
     /*** A public method to expose the quicksort algorithm to the test class so it can be tested  ***/
     /************************************************************************************************/
     public void quickSort() {
+        // Call quicksort on the entire array (a range of 0 to size-1 to avoid going out of bounds!)
         quickSort(0, size - 1);
     }
 
@@ -206,11 +216,12 @@ public class Sort {
     /*** The actual internal private implementation of the quicksort algorithm      ***/
     /**********************************************************************************/
     private void quickSort(int L, int R) {
+        // Only carry on the sort if the right pointer is greater than the left pointer
         if (R > L) {
             // Perform partition
             int p = partition(L, R);
 
-            // And recursively sort both parts of the array
+            // And recursively sort both parts of the array using the calculated partition
             quickSort(L, p - 1);
             quickSort(p + 1, R);
         }
