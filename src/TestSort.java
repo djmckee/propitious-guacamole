@@ -13,12 +13,22 @@ public class TestSort {
 
     // To test the different sort types, I commented out the method that performs the sort tests I did not require for that particular test case.
     public static void main(String[] args) {
-        // Call the methods that perform the sort tests required for this particular test case...
-        testInsertionSort();
 
-        testQuickSort();
+        int[] array = {1, 2, 2, 2, 3};
 
-        testNewSort();
+// The number you're counting occurrences of...
+        int number = 5;
+
+// The number of times it occurs
+        int count = 0;
+
+        for (int i: array) {
+            if (i == number) {
+                count++;
+            }
+        }
+
+        System.out.println(number + " appears " + count + " times in the array");
 
     }
 
